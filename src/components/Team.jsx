@@ -34,7 +34,8 @@ const Team = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -50,7 +51,8 @@ const Team = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3 }}
             className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-12 hover:glow-effect transition-all duration-500"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
@@ -97,6 +99,8 @@ const Team = () => {
                     src="/images/ceo.jpg"
                     alt="George Monogyios"
                     className="relative w-32 h-32 md:w-56 md:h-56 rounded-2xl object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </motion.div>
@@ -148,7 +152,8 @@ const Team = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-12"
         >
           <h3 className="text-3xl font-bold mb-4">Why Join Syntria</h3>
@@ -164,7 +169,7 @@ const Team = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
               whileHover={{ y: -8, scale: 1.05 }}
               className="glass-strong rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover:glow-effect transition-all duration-500"
             >
@@ -181,7 +186,8 @@ const Team = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.3 }}
           className="text-center mt-8 md:mt-16"
         >
           <div className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-12 max-w-3xl mx-auto hover:glow-effect transition-all duration-500">

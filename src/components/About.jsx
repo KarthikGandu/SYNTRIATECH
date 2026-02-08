@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Brain, Zap, TrendingUp, Database, Cpu, Shield, Code, Globe, BarChart } from 'lucide-react';
 
 const About = () => {
-  const [hoveredBox, setHoveredBox] = useState(null);
-
   const highlights = [
     'Brilliant minds from top firms and AI labs',
     'Living platform that adapts to market evolution',
@@ -36,8 +34,8 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               About <span className="gradient-text-premium">Syntria</span>
@@ -61,7 +59,7 @@ const About = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.03, duration: 0.3 }}
                   className="flex items-center space-x-3"
                 >
                   <CheckCircle2 className="w-4 h-4 md:w-6 md:h-6 text-cyan-400 flex-shrink-0" />
@@ -75,8 +73,8 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3 }}
             className="relative"
           >
             <div className="glass-strong rounded-3xl p-8 relative overflow-hidden hover:glow-effect transition-all duration-500">
@@ -87,61 +85,100 @@ const About = () => {
                 {techBoxes.map((box, index) => (
                   <motion.div
                     key={index}
-                    className="aspect-square glass rounded-xl cursor-pointer overflow-hidden relative group"
+                    className="aspect-square glass rounded-xl overflow-hidden relative"
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, type: 'spring' }}
-                    whileHover={{ scale: 1.15, zIndex: 10 }}
-                    onHoverStart={() => setHoveredBox(index)}
-                    onHoverEnd={() => setHoveredBox(null)}
+                    transition={{ delay: index * 0.03, type: 'spring', stiffness: 150, damping: 15 }}
                   >
-                    {/* Gradient Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${box.color} opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
+                    {/* Animated Gradient Background */}
+                    <motion.div 
+                      className={`absolute inset-0 bg-gradient-to-br ${box.color}`}
+                      animate={{ 
+                        opacity: [0.15, 0.25, 0.15],
+                        scale: [1, 1.05, 1]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: index * 0.2,
+                        ease: "easeInOut"
+                      }}
+                    />
                     
                     {/* Content */}
                     <div className="w-full h-full flex flex-col items-center justify-center p-3 relative z-10">
+                      {/* Rotating Icon */}
                       <motion.div
                         animate={{ 
-                          rotate: hoveredBox === index ? 360 : 0,
-                          scale: hoveredBox === index ? 1.2 : 1
+                          rotate: [0, 360],
+                          scale: [1, 1.1, 1]
                         }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ 
+                          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                          scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }
+                        }}
                       >
-                        <box.icon className={`w-8 h-8 mb-2 bg-gradient-to-r ${box.color} bg-clip-text text-transparent`} 
-                          style={{ filter: 'brightness(1.5)' }}
-                          stroke="url(#gradient)"
+                        <box.icon 
+                          className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" 
+                          strokeWidth={2}
                         />
-                        <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#06b6d4" />
-                            <stop offset="100%" stopColor="#3b82f6" />
-                          </linearGradient>
-                        </defs>
                       </motion.div>
                       
-                      {/* Label - Always visible */}
-                      <div className="text-[10px] font-bold text-center text-cyan-400 mb-1">
+                      {/* Label - Always visible with pulse */}
+                      <motion.div 
+                        className="text-[10px] md:text-xs font-bold text-center text-cyan-400 mt-2 mb-1"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.15 }}
+                      >
                         {box.label}
-                      </div>
+                      </motion.div>
                       
-                      {/* Metric - Shows on hover */}
+                      {/* Metric - Always visible with slide-in animation */}
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
-                        animate={{ 
-                          opacity: hoveredBox === index ? 1 : 0,
-                          y: hoveredBox === index ? 0 : 10
-                        }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                         className="text-center"
                       >
-                        <div className="text-sm font-bold gradient-text-premium">
+                        <motion.div 
+                          className="text-sm md:text-base font-bold gradient-text-premium"
+                          animate={{ 
+                            scale: [1, 1.05, 1]
+                          }}
+                          transition={{ 
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.2,
+                            ease: "easeInOut"
+                          }}
+                        >
                           {box.metric}
-                        </div>
-                        <div className="text-[9px] text-slate-400">
+                        </motion.div>
+                        <motion.div 
+                          className="text-[9px] md:text-[10px] text-slate-400"
+                          animate={{ opacity: [0.5, 0.8, 0.5] }}
+                          transition={{ duration: 3, repeat: Infinity, delay: index * 0.1 }}
+                        >
                           {box.desc}
-                        </div>
+                        </motion.div>
                       </motion.div>
                     </div>
+
+                    {/* Animated border pulse */}
+                    <motion.div
+                      className="absolute inset-0 rounded-xl border-2 border-cyan-400/0"
+                      animate={{
+                        borderColor: ['rgba(6, 182, 212, 0)', 'rgba(6, 182, 212, 0.3)', 'rgba(6, 182, 212, 0)']
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: index * 0.3,
+                        ease: "easeInOut"
+                      }}
+                    />
                   </motion.div>
                 ))}
               </div>

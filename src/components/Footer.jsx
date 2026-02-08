@@ -28,7 +28,7 @@ const Footer = () => {
               className="mb-6"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <img src="/images/logo.png" alt="Syntria" className="h-10 w-auto" />
+                <img src="/images/logo.png" alt="Syntria" className="h-10 w-auto" loading="lazy" decoding="async" />
                 <div className="flex flex-col">
                   <span className="text-xl font-bold gradient-text">SYNTRIA</span>
                   <span className="text-[8px] font-semibold text-slate-400 tracking-[0.2em] -mt-1">QUANTITATIVE TRADING</span>

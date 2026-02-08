@@ -41,7 +41,8 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -57,7 +58,8 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3 }}
           >
             <form onSubmit={handleSubmit} className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-12 space-y-4 md:space-y-6 hover:glow-effect transition-all duration-500">
               <div className="text-center mb-8">

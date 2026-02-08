@@ -40,7 +40,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="flex flex-wrap justify-center gap-4 mb-8"
           >
             <div className="glass px-4 py-2 rounded-full">
@@ -58,7 +58,7 @@ const Hero = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="text-4xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight"
           >
             <motion.span 
@@ -79,7 +79,7 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="text-base md:text-2xl text-slate-400 mb-6 md:mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             Combining deep market expertise with cutting-edge AI/ML on a clean-slate architecture. 
@@ -91,7 +91,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <motion.a
@@ -144,7 +144,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-6 md:mt-20"
           >
             {[
@@ -161,7 +161,7 @@ const Hero = () => {
                   opacity: 1, 
                   y: 0,
                 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
+                transition={{ delay: 0.25 + index * 0.05 }}
                 whileHover={{ y: -12, scale: 1.05 }}
                 animate={{
                   y: [0, -8, 0],

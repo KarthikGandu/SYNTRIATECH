@@ -40,7 +40,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <div className="flex items-center space-x-3">
-              <img src="/images/logo.png" alt="Syntria" className="h-10 w-auto" />
+              <img src="/images/logo.png" alt="Syntria" className="h-10 w-auto" loading="eager" decoding="async" />
               <div className="flex flex-col">
                 <span className="text-2xl font-bold gradient-text">SYNTRIA</span>
                 <span className="text-[10px] font-semibold text-slate-400 tracking-[0.2em] -mt-1">QUANTITATIVE TRADING</span>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 className="text-slate-300 hover:text-cyan-400 transition-colors relative group py-2 text-sm lg:text-base"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.03 }}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300" />
