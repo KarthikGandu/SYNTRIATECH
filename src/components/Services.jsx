@@ -108,20 +108,19 @@ const Services = () => {
               {/* Premium Icon with Pulse */}
               <motion.div 
                 className={`relative w-12 h-12 md:w-20 md:h-20 mb-3 md:mb-6 rounded-xl md:rounded-2xl bg-gradient-to-r ${service.gradient} p-2 md:p-4 shadow-2xl`}
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
+                whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.6 } }}
                 animate={{
                   boxShadow: [
                     '0 0 20px rgba(6, 182, 212, 0.3)',
                     '0 0 40px rgba(6, 182, 212, 0.6)',
                     '0 0 20px rgba(6, 182, 212, 0.3)',
                   ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.2
+                  transition: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.2
+                  }
                 }}
               >
                 <service.icon className="w-full h-full text-white" />

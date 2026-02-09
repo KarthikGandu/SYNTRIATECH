@@ -157,17 +157,15 @@ const Hero = () => {
                 key={index}
                 className="glass-strong rounded-xl md:rounded-2xl p-4 md:p-6 hover:glow-effect transition-all duration-500 group cursor-pointer relative overflow-hidden"
                 initial={{ opacity: 0, y: 40 }}
-                animate={{ 
+                whileInView={{ 
                   opacity: 1, 
                   y: 0,
+                  transition: { delay: 0.25 + index * 0.05 }
                 }}
-                transition={{ delay: 0.25 + index * 0.05 }}
                 whileHover={{ y: -12, scale: 1.05 }}
                 animate={{
                   y: [0, -8, 0],
-                }}
-                transition={{
-                  y: {
+                  transition: {
                     duration: 3 + index * 0.5,
                     repeat: Infinity,
                     ease: "easeInOut"
